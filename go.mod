@@ -13,5 +13,4 @@ require (
 	github.com/prysmaticlabs/go-bitfield v0.0.0-20210809151128-385d8c5e3fb7 // indirect
 	github.com/prysmaticlabs/go-ssz v0.0.0-20210121151755-f6208871c388
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	gonum.org/v1/gonum v0.9.3
 )
