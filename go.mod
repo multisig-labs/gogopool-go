@@ -1,6 +1,6 @@
-module github.com/rocket-pool/rocketpool-go
+module github.com/multisig-labs/gogopool-go
 
-go 1.13
+go 1.17
 
 require (
 	github.com/btcsuite/btcd v0.22.0-beta // indirect
