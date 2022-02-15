@@ -1,4 +1,4 @@
-module github.com/multisig-labs/gogopool-go
+module gogopool-go
 
 go 1.17
 
