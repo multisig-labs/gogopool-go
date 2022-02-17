@@ -21,11 +21,11 @@ fi
 
 
 # Rocket Pool settings
-rp_repo_url="git@ssh.dev.azure.com:v3/rocket-pool/RocketPool/rocketpool"
-rp_repo_branch="minipool-approval"
+ggp_repo_url="git@ssh.dev.azure.com:v3/multisig-labs/GoGoPool/gogopool"
+ggp_repo_branch="minipool-approval"
 
 # Dependencies
-rp_dependencies=(
+ggp_dependencies=(
     "@openzeppelin/contracts@3.3.0"
     "babel-polyfill@6.26.0"
     "babel-register@6.26.0"
@@ -53,8 +53,8 @@ ganache_port="8545"
 cleanup() {
 
     # Remove RP repo
-    if [ -d "$rp_tmp_path" ]; then
-        rm -rf "$rp_tmp_path"
+    if [ -d "$ggp_tmp_path" ]; then
+        rm -rf "$ggp_tmp_path"
     fi
 
     # Kill ganache instance
@@ -65,31 +65,31 @@ cleanup() {
 }
 
 # Clone Rocket Pool repo
-clone_rp() {
-    rp_tmp_path="$(mktemp -d)"
-    rp_path="$rp_tmp_path/rocketpool"
-    git clone "$rp_repo_url" -b "$rp_repo_branch" "$rp_path"
+clone_ggp() {
+    ggp_tmp_path="$(mktemp -d)"
+    ggp_path="$ggp_tmp_path/gogopool"
+    git clone "$ggp_repo_url" -b "$ggp_repo_branch" "$ggp_path"
 }
 
 # Install Rocket Pool dependencies
-install_rp_deps() {
-    cd "$rp_path"
+install_ggp_deps() {
+    cd "$ggp_path"
     rm package.json package-lock.json
-    npm install "${rp_dependencies[@]}"
+    npm install "${ggp_dependencies[@]}"
     cd - > /dev/null
 }
 
 # Start ganache-cli instance
 start_ganache() {
-    cd "$rp_path"
+    cd "$ggp_path"
     node_modules/.bin/ganache-cli -e "$ganache_eth_balance" -l "$ganache_gas_limit" -m "$ganache_mnemonic" -p "$ganache_port" > /dev/null &
     ganache_pid=$!
     cd - > /dev/null
 }
 
 # Migrate Rocket Pool contracts
-migrate_rp() {
-    cd "$rp_path"
+migrate_ggp() {
+    cd "$ggp_path"
     node_modules/.bin/truffle migrate
     cd - > /dev/null
 }
@@ -113,13 +113,13 @@ trap cleanup EXIT
 echo ""
 echo "Cloning main Rocket Pool repository..."
 echo ""
-clone_rp
+clone_ggp
 
 # Install RP deps
 echo ""
 echo "Installing Rocket Pool dependencies..."
 echo ""
-install_rp_deps
+install_ggp_deps
 
 # Start ganache
 echo ""
@@ -131,7 +131,7 @@ start_ganache
 echo ""
 echo "Migrating Rocket Pool contracts..."
 echo ""
-migrate_rp
+migrate_ggp
 
 # Run tests
 echo ""
