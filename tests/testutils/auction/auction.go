@@ -8,7 +8,7 @@ import (
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	"github.com/multisig-labs/gogopool-go/minipool"
 	"github.com/multisig-labs/gogopool-go/settings/trustednode"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/accounts"
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"

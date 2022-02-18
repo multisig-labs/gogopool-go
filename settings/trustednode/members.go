@@ -10,7 +10,7 @@ import (
 
 	trustednodedao "github.com/multisig-labs/gogopool-go/dao/trustednode"
 	"github.com/multisig-labs/gogopool-go/gogopool"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 // Config
