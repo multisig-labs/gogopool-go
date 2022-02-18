@@ -9,7 +9,7 @@ import (
 
 	"github.com/multisig-labs/gogopool-go/minipool"
 	"github.com/multisig-labs/gogopool-go/node"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"
 	minipoolutils "github.com/multisig-labs/gogopool-go/tests/testutils/minipool"

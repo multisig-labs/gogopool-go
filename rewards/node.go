@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/multisig-labs/gogopool-go/gogopool"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 // Get whether node reward claims are enabled

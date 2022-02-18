@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	uc "github.com/multisig-labs/gogopool-go/utils/client"
 
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests"
 	"github.com/multisig-labs/gogopool-go/tests/testutils/accounts"

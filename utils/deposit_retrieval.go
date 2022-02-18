@@ -12,7 +12,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	ggptypes "github.com/multisig-labs/gogopool-go/types"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 // BeaconDepositEvent represents a DepositEvent event raised by the BeaconDeposit contract.

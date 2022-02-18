@@ -14,7 +14,7 @@ import (
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"
 	minipoolutils "github.com/multisig-labs/gogopool-go/tests/testutils/minipool"
 	"github.com/multisig-labs/gogopool-go/tokens"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 func TestNodeRewards(t *testing.T) {

@@ -12,7 +12,7 @@ import (
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	"github.com/multisig-labs/gogopool-go/node"
 	trustednodesettings "github.com/multisig-labs/gogopool-go/settings/trustednode"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/accounts"
 	daoutils "github.com/multisig-labs/gogopool-go/tests/testutils/dao"

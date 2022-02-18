@@ -6,7 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/multisig-labs/gogopool-go/tokens"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"
 	ggputils "github.com/multisig-labs/gogopool-go/tests/testutils/tokens/ggp"

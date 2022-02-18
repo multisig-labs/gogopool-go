@@ -9,7 +9,7 @@ import (
 	trustednodedao "github.com/multisig-labs/gogopool-go/dao/trustednode"
 	"github.com/multisig-labs/gogopool-go/node"
 	trustednodesettings "github.com/multisig-labs/gogopool-go/settings/trustednode"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"
 	minipoolutils "github.com/multisig-labs/gogopool-go/tests/testutils/minipool"

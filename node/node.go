@@ -18,7 +18,7 @@ import (
 
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	"github.com/multisig-labs/gogopool-go/storage"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 	"github.com/multisig-labs/gogopool-go/utils/strings"
 )
 

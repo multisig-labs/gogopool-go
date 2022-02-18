@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 func TestConversion(t *testing.T) {

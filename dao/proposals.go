@@ -11,7 +11,7 @@ import (
 
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	ggptypes "github.com/multisig-labs/gogopool-go/types"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 	"github.com/multisig-labs/gogopool-go/utils/strings"
 )
 

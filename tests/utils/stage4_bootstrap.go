@@ -6,7 +6,7 @@ import (
 	"github.com/multisig-labs/gogopool-go/gogopool"
 	"github.com/multisig-labs/gogopool-go/settings/protocol"
 	"github.com/multisig-labs/gogopool-go/tests/testutils/accounts"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 // Bootstrap all of the parameters to mimic Stage 4 so the unit tests work correctly

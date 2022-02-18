@@ -10,7 +10,7 @@ import (
 	"github.com/multisig-labs/gogopool-go/network"
 	"github.com/multisig-labs/gogopool-go/settings/protocol"
 	"github.com/multisig-labs/gogopool-go/tokens"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	auctionutils "github.com/multisig-labs/gogopool-go/tests/testutils/auction"
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"

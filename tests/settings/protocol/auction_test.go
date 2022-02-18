@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/multisig-labs/gogopool-go/settings/protocol"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 
 	"github.com/multisig-labs/gogopool-go/tests/testutils/evm"
 )

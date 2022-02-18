@@ -10,7 +10,7 @@ import (
 
 	protocoldao "github.com/multisig-labs/gogopool-go/dao/protocol"
 	"github.com/multisig-labs/gogopool-go/gogopool"
-	"github.com/multisig-labs/gogopool-go/utils/eth"
+	"github.com/multisig-labs/gogopool-go/utils/avax"
 )
 
 // Config
