@@ -225,7 +225,6 @@ func TestBurnRETH(t *testing.T) {
 	}
 
 	// Get & check updated balances
-
 	balances2, err := tokens.GetBalances(ggp, userAccount1.Address, nil)
 	if err != nil {
 		t.Fatal(err)
