@@ -218,7 +218,7 @@ func TestBurnRETH(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	// Burn rETH
+	// Burn gAVAX
 	burnAmount := avax.EthToWei(50)
 	if _, err := tokens.BurnRETH(ggp, burnAmount, userAccount1.GetTransactor()); err != nil {
 		t.Fatal(err)
