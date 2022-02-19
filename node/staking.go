@@ -13,7 +13,7 @@ import (
 
 // Get the total GGP staked in the network
 func GetTotalGGPStake(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func GetTotalGGPStake(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, er
 
 // Get the effective GGP staked in the network
 func GetTotalEffectiveGGPStake(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +39,7 @@ func GetTotalEffectiveGGPStake(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*bi
 
 // Get a node's GGP stake
 func GetNodeGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func GetNodeGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *b
 
 // Get a node's effective GGP stake
 func GetNodeEffectiveGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func GetNodeEffectiveGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address
 
 // Get a node's minimum GGP stake to collateralize their minipools
 func GetNodeMinimumGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +78,7 @@ func GetNodeMinimumGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, 
 
 // Get a node's maximum GGP stake to collateralize their minipools
 func GetNodeMaximumGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +91,7 @@ func GetNodeMaximumGGPStake(ggp *gogopool.GoGoPool, nodeAddress common.Address, 
 
 // Get the time a node last staked GGP
 func GetNodeGGPStakedTime(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -104,7 +104,7 @@ func GetNodeGGPStakedTime(ggp *gogopool.GoGoPool, nodeAddress common.Address, op
 
 // Get a node's minipool limit based on GGP stake
 func GetNodeMinipoolLimit(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -117,7 +117,7 @@ func GetNodeMinipoolLimit(ggp *gogopool.GoGoPool, nodeAddress common.Address, op
 
 // Estimate the gas of Stake
 func EstimateStakeGas(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -126,7 +126,7 @@ func EstimateStakeGas(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.Tra
 
 // Stake GGP
 func StakeGGP(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -139,7 +139,7 @@ func StakeGGP(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpt
 
 // Estimate the gas of WithdrawGGP
 func EstimateWithdrawGGPGas(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -148,7 +148,7 @@ func EstimateWithdrawGGPGas(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bi
 
 // Withdraw staked GGP
 func WithdrawGGP(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -161,7 +161,7 @@ func WithdrawGGP(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.Transact
 
 // Calculate total effective GGP stake
 func CalculateTotalEffectiveGGPStake(ggp *gogopool.GoGoPool, offset, limit, ggpPrice *big.Int, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNodeStaking, err := getRocketNodeStaking(ggp)
+	gogoNodeStaking, err := getGoGoNodeStaking(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -175,7 +175,7 @@ func CalculateTotalEffectiveGGPStake(ggp *gogopool.GoGoPool, offset, limit, ggpP
 // Get contracts
 var gogoNodeStakingLock sync.Mutex
 
-func getRocketNodeStaking(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNodeStaking(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeStakingLock.Lock()
 	defer gogoNodeStakingLock.Unlock()
 	return ggp.GetContract("gogoNodeStaking")

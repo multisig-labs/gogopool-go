@@ -116,7 +116,7 @@ func GetQueueCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (QueueCapacit
 
 // Get the total length of the minipool queue
 func GetQueueTotalLength(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolQueue, err := getRocketMinipoolQueue(ggp)
+	gogoMinipoolQueue, err := getGoGoMinipoolQueue(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -129,7 +129,7 @@ func GetQueueTotalLength(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, e
 
 // Get the length of a single minipool queue
 func GetQueueLength(ggp *gogopool.GoGoPool, depositType ggptypes.MinipoolDeposit, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolQueue, err := getRocketMinipoolQueue(ggp)
+	gogoMinipoolQueue, err := getGoGoMinipoolQueue(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -142,7 +142,7 @@ func GetQueueLength(ggp *gogopool.GoGoPool, depositType ggptypes.MinipoolDeposit
 
 // Get the total capacity of the minipool queue
 func GetQueueTotalCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoMinipoolQueue, err := getRocketMinipoolQueue(ggp)
+	gogoMinipoolQueue, err := getGoGoMinipoolQueue(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -155,7 +155,7 @@ func GetQueueTotalCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.In
 
 // Get the total effective capacity of the minipool queue (used in node demand calculation)
 func GetQueueEffectiveCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoMinipoolQueue, err := getRocketMinipoolQueue(ggp)
+	gogoMinipoolQueue, err := getGoGoMinipoolQueue(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -168,7 +168,7 @@ func GetQueueEffectiveCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*bi
 
 // Get the capacity of the next minipool in the queue
 func GetQueueNextCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoMinipoolQueue, err := getRocketMinipoolQueue(ggp)
+	gogoMinipoolQueue, err := getGoGoMinipoolQueue(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -182,7 +182,7 @@ func GetQueueNextCapacity(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int
 // Get contracts
 var gogoMinipoolQueueLock sync.Mutex
 
-func getRocketMinipoolQueue(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoMinipoolQueue(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolQueueLock.Lock()
 	defer gogoMinipoolQueueLock.Unlock()
 	return ggp.GetContract("gogoMinipoolQueue")

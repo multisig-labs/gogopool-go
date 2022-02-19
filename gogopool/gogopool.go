@@ -33,7 +33,7 @@ type cachedContract struct {
 	time     int64
 }
 
-// Rocket Pool contract manager
+// GoGo Pool contract manager
 type GoGoPool struct {
 	Client              *client.EthClientProxy
 	GoGoStorage         *contracts.GoGoStorage
@@ -52,7 +52,7 @@ func NewGoGoPool(client *client.EthClientProxy, gogoStorageAddress common.Addres
 	// Initialize GoGoStorage contract
 	gogoStorage, err := contracts.NewGoGoStorage(gogoStorageAddress, client)
 	if err != nil {
-		return nil, fmt.Errorf("Could not initialize Rocket Pool storage contract: %w", err)
+		return nil, fmt.Errorf("Could not initialize GoGo Pool storage contract: %w", err)
 	}
 
 	// Create a Contract for it
@@ -79,7 +79,7 @@ func NewGoGoPool(client *client.EthClientProxy, gogoStorageAddress common.Addres
 
 }
 
-// Load Rocket Pool contract addresses
+// Load GoGo Pool contract addresses
 func (ggp *GoGoPool) GetAddress(contractName string) (*common.Address, error) {
 
 	// Check for cached address
@@ -135,7 +135,7 @@ func (ggp *GoGoPool) GetAddresses(contractNames ...string) ([]*common.Address, e
 
 }
 
-// Load Rocket Pool contract ABIs
+// Load GoGo Pool contract ABIs
 func (ggp *GoGoPool) GetABI(contractName string) (*abi.ABI, error) {
 
 	// Check for cached ABI
@@ -197,7 +197,7 @@ func (ggp *GoGoPool) GetABIs(contractNames ...string) ([]*abi.ABI, error) {
 
 }
 
-// Load Rocket Pool contracts
+// Load GoGo Pool contracts
 func (ggp *GoGoPool) GetContract(contractName string) (*Contract, error) {
 
 	// Check for cached contract
@@ -277,7 +277,7 @@ func (ggp *GoGoPool) GetContracts(contractNames ...string) ([]*Contract, error) 
 
 }
 
-// Create a Rocket Pool contract instance
+// Create a GoGo Pool contract instance
 func (ggp *GoGoPool) MakeContract(contractName string, address common.Address) (*Contract, error) {
 
 	// Load ABI

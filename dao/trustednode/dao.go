@@ -189,7 +189,7 @@ func GetMemberDetails(ggp *gogopool.GoGoPool, memberAddress common.Address, opts
 
 // Get the minimum member count
 func GetMinimumMemberCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -202,7 +202,7 @@ func GetMinimumMemberCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64,
 
 // Get the member count
 func GetMemberCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -215,7 +215,7 @@ func GetMemberCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error)
 
 // Get a member address by index
 func GetMemberAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -228,7 +228,7 @@ func GetMemberAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (com
 
 // Member details
 func GetMemberExists(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -239,7 +239,7 @@ func GetMemberExists(ggp *gogopool.GoGoPool, memberAddress common.Address, opts 
 	return *exists, nil
 }
 func GetMemberID(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (string, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return "", err
 	}
@@ -250,7 +250,7 @@ func GetMemberID(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bin
 	return strings.Sanitize(*id), nil
 }
 func GetMemberUrl(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (string, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return "", err
 	}
@@ -261,7 +261,7 @@ func GetMemberUrl(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bi
 	return strings.Sanitize(*url), nil
 }
 func GetMemberJoinedTime(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -272,7 +272,7 @@ func GetMemberJoinedTime(ggp *gogopool.GoGoPool, memberAddress common.Address, o
 	return (*joinedTime).Uint64(), nil
 }
 func GetMemberLastProposalTime(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -283,7 +283,7 @@ func GetMemberLastProposalTime(ggp *gogopool.GoGoPool, memberAddress common.Addr
 	return (*lastProposalTime).Uint64(), nil
 }
 func GetMemberGGPBondAmount(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -294,7 +294,7 @@ func GetMemberGGPBondAmount(ggp *gogopool.GoGoPool, memberAddress common.Address
 	return *ggpBondAmount, nil
 }
 func GetMemberUnbondedValidatorCount(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -316,7 +316,7 @@ func GetMemberReplaceProposalExecutedTime(ggp *gogopool.GoGoPool, memberAddress 
 	return GetMemberProposalExecutedTime(ggp, "replace", memberAddress, opts)
 }
 func GetMemberProposalExecutedTime(ggp *gogopool.GoGoPool, proposalType string, memberAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -329,7 +329,7 @@ func GetMemberProposalExecutedTime(ggp *gogopool.GoGoPool, proposalType string, 
 
 // Get a member's replacement address if being replaced
 func GetMemberReplacementAddress(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (common.Address, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -342,7 +342,7 @@ func GetMemberReplacementAddress(ggp *gogopool.GoGoPool, memberAddress common.Ad
 
 // Get whether a member has an active challenge against them
 func GetMemberIsChallenged(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -355,7 +355,7 @@ func GetMemberIsChallenged(ggp *gogopool.GoGoPool, memberAddress common.Address,
 
 // Estimate the gas of BootstrapBool
 func EstimateBootstrapBoolGas(ggp *gogopool.GoGoPool, contractName, settingPath string, value bool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -364,7 +364,7 @@ func EstimateBootstrapBoolGas(ggp *gogopool.GoGoPool, contractName, settingPath 
 
 // Bootstrap a bool setting
 func BootstrapBool(ggp *gogopool.GoGoPool, contractName, settingPath string, value bool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -377,7 +377,7 @@ func BootstrapBool(ggp *gogopool.GoGoPool, contractName, settingPath string, val
 
 // Estimate the gas of BootstrapUint
 func EstimateBootstrapUintGas(ggp *gogopool.GoGoPool, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -386,7 +386,7 @@ func EstimateBootstrapUintGas(ggp *gogopool.GoGoPool, contractName, settingPath 
 
 // Bootstrap a uint256 setting
 func BootstrapUint(ggp *gogopool.GoGoPool, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -399,7 +399,7 @@ func BootstrapUint(ggp *gogopool.GoGoPool, contractName, settingPath string, val
 
 // Estimate the gas of BootstrapMember
 func EstimateBootstrapMemberGas(ggp *gogopool.GoGoPool, id, url string, nodeAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -409,7 +409,7 @@ func EstimateBootstrapMemberGas(ggp *gogopool.GoGoPool, id, url string, nodeAddr
 
 // Bootstrap a DAO member
 func BootstrapMember(ggp *gogopool.GoGoPool, id, url string, nodeAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -427,7 +427,7 @@ func EstimateBootstrapUpgradeGas(ggp *gogopool.GoGoPool, upgradeType, contractNa
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -440,7 +440,7 @@ func BootstrapUpgrade(ggp *gogopool.GoGoPool, upgradeType, contractName, contrac
 	if err != nil {
 		return common.Hash{}, err
 	}
-	gogoDAONodeTrusted, err := getRocketDAONodeTrusted(ggp)
+	gogoDAONodeTrusted, err := getGoGoDAONodeTrusted(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -454,7 +454,7 @@ func BootstrapUpgrade(ggp *gogopool.GoGoPool, upgradeType, contractName, contrac
 // Get contracts
 var gogoDAONodeTrustedLock sync.Mutex
 
-func getRocketDAONodeTrusted(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAONodeTrusted(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedLock.Lock()
 	defer gogoDAONodeTrustedLock.Unlock()
 	return ggp.GetContract("gogoDAONodeTrusted")

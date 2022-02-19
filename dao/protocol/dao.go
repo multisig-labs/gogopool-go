@@ -14,7 +14,7 @@ import (
 
 // Estimate the gas of BootstrapBool
 func EstimateBootstrapBoolGas(ggp *gogopool.GoGoPool, contractName, settingPath string, value bool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -23,7 +23,7 @@ func EstimateBootstrapBoolGas(ggp *gogopool.GoGoPool, contractName, settingPath 
 
 // Bootstrap a bool setting
 func BootstrapBool(ggp *gogopool.GoGoPool, contractName, settingPath string, value bool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -36,7 +36,7 @@ func BootstrapBool(ggp *gogopool.GoGoPool, contractName, settingPath string, val
 
 // Estimate the gas of BootstrapUint
 func EstimateBootstrapUintGas(ggp *gogopool.GoGoPool, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -45,7 +45,7 @@ func EstimateBootstrapUintGas(ggp *gogopool.GoGoPool, contractName, settingPath 
 
 // Bootstrap a uint256 setting
 func BootstrapUint(ggp *gogopool.GoGoPool, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -58,7 +58,7 @@ func BootstrapUint(ggp *gogopool.GoGoPool, contractName, settingPath string, val
 
 // Estimate the gas of BootstrapAddress
 func EstimateBootstrapAddressGas(ggp *gogopool.GoGoPool, contractName, settingPath string, value common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -67,7 +67,7 @@ func EstimateBootstrapAddressGas(ggp *gogopool.GoGoPool, contractName, settingPa
 
 // Bootstrap an address setting
 func BootstrapAddress(ggp *gogopool.GoGoPool, contractName, settingPath string, value common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -80,7 +80,7 @@ func BootstrapAddress(ggp *gogopool.GoGoPool, contractName, settingPath string, 
 
 // Estimate the gas of BootstrapClaimer
 func EstimateBootstrapClaimerGas(ggp *gogopool.GoGoPool, contractName string, amount float64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -89,7 +89,7 @@ func EstimateBootstrapClaimerGas(ggp *gogopool.GoGoPool, contractName string, am
 
 // Bootstrap a rewards claimer
 func BootstrapClaimer(ggp *gogopool.GoGoPool, contractName string, amount float64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAOProtocol, err := getRocketDAOProtocol(ggp)
+	gogoDAOProtocol, err := getGoGoDAOProtocol(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -103,7 +103,7 @@ func BootstrapClaimer(ggp *gogopool.GoGoPool, contractName string, amount float6
 // Get contracts
 var gogoDAOProtocolLock sync.Mutex
 
-func getRocketDAOProtocol(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAOProtocol(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAOProtocolLock.Lock()
 	defer gogoDAOProtocolLock.Unlock()
 	return ggp.GetContract("gogoDAOProtocol")

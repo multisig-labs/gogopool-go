@@ -272,7 +272,7 @@ func GetLotDetailsWithBids(ggp *gogopool.GoGoPool, lotIndex uint64, bidder commo
 
 // Get the total GGP balance of the auction contract
 func GetTotalGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -285,7 +285,7 @@ func GetTotalGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, 
 
 // Get the allotted GGP balance of the auction contract
 func GetAllottedGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -298,7 +298,7 @@ func GetAllottedGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.In
 
 // Get the remaining GGP balance of the auction contract
 func GetRemainingGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -311,7 +311,7 @@ func GetRemainingGGPBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.I
 
 // Get the number of lots for auction
 func GetLotCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -324,7 +324,7 @@ func GetLotCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
 
 // Lot details
 func GetLotExists(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (bool, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -335,7 +335,7 @@ func GetLotExists(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) 
 	return *lotExists, nil
 }
 func GetLotStartBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -346,7 +346,7 @@ func GetLotStartBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOp
 	return (*lotStartBlock).Uint64(), nil
 }
 func GetLotEndBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -357,7 +357,7 @@ func GetLotEndBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts
 	return (*lotEndBlock).Uint64(), nil
 }
 func GetLotStartPrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -368,7 +368,7 @@ func GetLotStartPrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOp
 	return *lotStartPrice, nil
 }
 func GetLotReservePrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -379,7 +379,7 @@ func GetLotReservePrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Call
 	return *lotReservePrice, nil
 }
 func GetLotTotalGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -390,7 +390,7 @@ func GetLotTotalGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Ca
 	return *lotTotalGgpAmount, nil
 }
 func GetLotTotalBidAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -401,7 +401,7 @@ func GetLotTotalBidAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Ca
 	return *lotTotalBidAmount, nil
 }
 func GetLotGGPRecovered(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (bool, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -412,7 +412,7 @@ func GetLotGGPRecovered(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Call
 	return *lotGgpRecovered, nil
 }
 func GetLotPriceAtCurrentBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -423,7 +423,7 @@ func GetLotPriceAtCurrentBlock(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bi
 	return *lotPriceAtCurrentBlock, nil
 }
 func GetLotPriceByTotalBids(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -434,7 +434,7 @@ func GetLotPriceByTotalBids(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.
 	return *lotPriceByTotalBids, nil
 }
 func GetLotCurrentPrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -445,7 +445,7 @@ func GetLotCurrentPrice(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Call
 	return *lotCurrentPrice, nil
 }
 func GetLotClaimedGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -456,7 +456,7 @@ func GetLotClaimedGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.
 	return *lotClaimedGgpAmount, nil
 }
 func GetLotRemainingGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -467,7 +467,7 @@ func GetLotRemainingGGPAmount(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bin
 	return *lotRemainingGgpAmount, nil
 }
 func GetLotIsCleared(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpts) (bool, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -480,7 +480,7 @@ func GetLotIsCleared(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.CallOpt
 
 // Get the price of a lot at a specific block
 func GetLotPriceAtBlock(ggp *gogopool.GoGoPool, lotIndex, blockNumber uint64, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -493,7 +493,7 @@ func GetLotPriceAtBlock(ggp *gogopool.GoGoPool, lotIndex, blockNumber uint64, op
 
 // Get the ETH amount bid on a lot by an address
 func GetLotAddressBidAmount(ggp *gogopool.GoGoPool, lotIndex uint64, bidder common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -506,7 +506,7 @@ func GetLotAddressBidAmount(ggp *gogopool.GoGoPool, lotIndex uint64, bidder comm
 
 // Estimate the gas of CreateLot
 func EstimateCreateLotGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -515,7 +515,7 @@ func EstimateCreateLotGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogo
 
 // Create a new lot
 func CreateLot(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -532,7 +532,7 @@ func CreateLot(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (uint64, common.
 
 // Estimate the gas of PlaceBid
 func EstimatePlaceBidGas(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -541,7 +541,7 @@ func EstimatePlaceBidGas(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Tra
 
 // Place a bid on a lot
 func PlaceBid(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -554,7 +554,7 @@ func PlaceBid(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) 
 
 // Estimate the gas of ClaimBid
 func EstimateClaimBidGas(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -563,7 +563,7 @@ func EstimateClaimBidGas(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Tra
 
 // Claim GGP from a lot that was bid on
 func ClaimBid(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -576,7 +576,7 @@ func ClaimBid(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) 
 
 // Estimate the gas of RecoverUnclaimedGGP
 func EstimateRecoverUnclaimedGGPGas(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -585,7 +585,7 @@ func EstimateRecoverUnclaimedGGPGas(ggp *gogopool.GoGoPool, lotIndex uint64, opt
 
 // Recover unclaimed GGP from a lot
 func RecoverUnclaimedGGP(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoAuctionManager, err := getRocketAuctionManager(ggp)
+	gogoAuctionManager, err := getGoGoAuctionManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -599,7 +599,7 @@ func RecoverUnclaimedGGP(ggp *gogopool.GoGoPool, lotIndex uint64, opts *bind.Tra
 // Get contracts
 var gogoAuctionManagerLock sync.Mutex
 
-func getRocketAuctionManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoAuctionManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoAuctionManagerLock.Lock()
 	defer gogoAuctionManagerLock.Unlock()
 	return ggp.GetContract("gogoAuctionManager")

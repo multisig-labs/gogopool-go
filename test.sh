@@ -20,7 +20,7 @@ fi
 ##
 
 
-# Rocket Pool settings
+# GoGo Pool settings
 ggp_repo_url="git@ssh.dev.azure.com:v3/multisig-labs/GoGoPool/gogopool"
 ggp_repo_branch="minipool-approval"
 
@@ -64,14 +64,14 @@ cleanup() {
 
 }
 
-# Clone Rocket Pool repo
+# Clone GoGo Pool repo
 clone_ggp() {
     ggp_tmp_path="$(mktemp -d)"
     ggp_path="$ggp_tmp_path/gogopool"
     git clone "$ggp_repo_url" -b "$ggp_repo_branch" "$ggp_path"
 }
 
-# Install Rocket Pool dependencies
+# Install GoGo Pool dependencies
 install_ggp_deps() {
     cd "$ggp_path"
     rm package.json package-lock.json
@@ -87,7 +87,7 @@ start_ganache() {
     cd - > /dev/null
 }
 
-# Migrate Rocket Pool contracts
+# Migrate GoGo Pool contracts
 migrate_ggp() {
     cd "$ggp_path"
     node_modules/.bin/truffle migrate
@@ -111,13 +111,13 @@ trap cleanup EXIT
 
 # Clone RP repo
 echo ""
-echo "Cloning main Rocket Pool repository..."
+echo "Cloning main GoGo Pool repository..."
 echo ""
 clone_ggp
 
 # Install RP deps
 echo ""
-echo "Installing Rocket Pool dependencies..."
+echo "Installing GoGo Pool dependencies..."
 echo ""
 install_ggp_deps
 
@@ -129,7 +129,7 @@ start_ganache
 
 # Migrate RP contracts
 echo ""
-echo "Migrating Rocket Pool contracts..."
+echo "Migrating GoGo Pool contracts..."
 echo ""
 migrate_ggp
 

@@ -429,7 +429,7 @@ func GetProposalDetailsWithMember(ggp *gogopool.GoGoPool, proposalId uint64, mem
 
 // Get the proposal count
 func GetProposalCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -442,7 +442,7 @@ func GetProposalCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, erro
 
 // Proposal details
 func GetProposalDAO(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (string, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return "", err
 	}
@@ -453,7 +453,7 @@ func GetProposalDAO(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOp
 	return strings.Sanitize(*daoName), nil
 }
 func GetProposalProposerAddress(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -464,7 +464,7 @@ func GetProposalProposerAddress(ggp *gogopool.GoGoPool, proposalId uint64, opts 
 	return *proposerAddress, nil
 }
 func GetProposalMessage(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (string, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return "", err
 	}
@@ -475,7 +475,7 @@ func GetProposalMessage(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.Ca
 	return strings.Sanitize(*message), nil
 }
 func GetProposalCreatedTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -486,7 +486,7 @@ func GetProposalCreatedTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bin
 	return (*createdTime).Uint64(), nil
 }
 func GetProposalStartTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -497,7 +497,7 @@ func GetProposalStartTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.
 	return (*startTime).Uint64(), nil
 }
 func GetProposalEndTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -508,7 +508,7 @@ func GetProposalEndTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.Ca
 	return (*endTime).Uint64(), nil
 }
 func GetProposalExpiryTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (uint64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -519,7 +519,7 @@ func GetProposalExpiryTime(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind
 	return (*expiryTime).Uint64(), nil
 }
 func GetProposalVotesRequired(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (float64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -530,7 +530,7 @@ func GetProposalVotesRequired(ggp *gogopool.GoGoPool, proposalId uint64, opts *b
 	return avax.WeiToEth(*votesRequired), nil
 }
 func GetProposalVotesFor(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (float64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -541,7 +541,7 @@ func GetProposalVotesFor(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.C
 	return avax.WeiToEth(*votesFor), nil
 }
 func GetProposalVotesAgainst(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (float64, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -552,7 +552,7 @@ func GetProposalVotesAgainst(ggp *gogopool.GoGoPool, proposalId uint64, opts *bi
 	return avax.WeiToEth(*votesAgainst), nil
 }
 func GetProposalIsCancelled(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (bool, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -563,7 +563,7 @@ func GetProposalIsCancelled(ggp *gogopool.GoGoPool, proposalId uint64, opts *bin
 	return *cancelled, nil
 }
 func GetProposalIsExecuted(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (bool, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -574,7 +574,7 @@ func GetProposalIsExecuted(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind
 	return *executed, nil
 }
 func GetProposalPayload(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) ([]byte, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return []byte{}, err
 	}
@@ -600,7 +600,7 @@ func GetProposalPayloadStr(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind
 	return payloadStr, nil
 }
 func GetProposalState(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.CallOpts) (ggptypes.ProposalState, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -613,7 +613,7 @@ func GetProposalState(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.Call
 
 // Get whether a member has voted on a proposal
 func GetProposalMemberVoted(ggp *gogopool.GoGoPool, proposalId uint64, memberAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -626,7 +626,7 @@ func GetProposalMemberVoted(ggp *gogopool.GoGoPool, proposalId uint64, memberAdd
 
 // Get whether a member has voted in support of a proposal
 func GetProposalMemberSupported(ggp *gogopool.GoGoPool, proposalId uint64, memberAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoDAOProposal, err := getRocketDAOProposal(ggp)
+	gogoDAOProposal, err := getGoGoDAOProposal(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -640,7 +640,7 @@ func GetProposalMemberSupported(ggp *gogopool.GoGoPool, proposalId uint64, membe
 // Get contracts
 var gogoDAOProposalLock sync.Mutex
 
-func getRocketDAOProposal(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAOProposal(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAOProposalLock.Lock()
 	defer gogoDAOProposalLock.Unlock()
 	return ggp.GetContract("gogoDAOProposal")

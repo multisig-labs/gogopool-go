@@ -12,7 +12,7 @@ import (
 
 // Estimate the gas of SubmitMinipoolWithdrawable
 func EstimateSubmitMinipoolWithdrawableGas(ggp *gogopool.GoGoPool, minipoolAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoMinipoolStatus, err := getRocketMinipoolStatus(ggp)
+	gogoMinipoolStatus, err := getGoGoMinipoolStatus(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -21,7 +21,7 @@ func EstimateSubmitMinipoolWithdrawableGas(ggp *gogopool.GoGoPool, minipoolAddre
 
 // Submit a minipool withdrawable event
 func SubmitMinipoolWithdrawable(ggp *gogopool.GoGoPool, minipoolAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoMinipoolStatus, err := getRocketMinipoolStatus(ggp)
+	gogoMinipoolStatus, err := getGoGoMinipoolStatus(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -35,7 +35,7 @@ func SubmitMinipoolWithdrawable(ggp *gogopool.GoGoPool, minipoolAddress common.A
 // Get contracts
 var gogoMinipoolStatusLock sync.Mutex
 
-func getRocketMinipoolStatus(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoMinipoolStatus(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolStatusLock.Lock()
 	defer gogoMinipoolStatusLock.Unlock()
 	return ggp.GetContract("gogoMinipoolStatus")

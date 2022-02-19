@@ -53,7 +53,7 @@ func getClaimRewardsAmount(claimsContract *gogopool.Contract, claimsName string,
 
 // Get the time that the user registered as a claimer
 func getClaimingContractUserRegisteredTime(ggp *gogopool.GoGoPool, claimsContract string, claimerAddress common.Address, opts *bind.CallOpts) (time.Time, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return time.Time{}, err
 	}
@@ -66,7 +66,7 @@ func getClaimingContractUserRegisteredTime(ggp *gogopool.GoGoPool, claimsContrac
 
 // Get the total amount claimed in the current interval by the given claiming contract
 func getClaimingContractTotalClaimed(ggp *gogopool.GoGoPool, claimsContract string, opts *bind.CallOpts) (*big.Int, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +93,7 @@ func claim(claimsContract *gogopool.Contract, claimsName string, opts *bind.Tran
 
 // Get the timestamp that the current rewards interval started
 func GetClaimIntervalTimeStart(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (time.Time, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return time.Time{}, err
 	}
@@ -106,7 +106,7 @@ func GetClaimIntervalTimeStart(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (tim
 
 // Get the number of seconds in a claim interval
 func GetClaimIntervalTime(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (time.Duration, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -119,7 +119,7 @@ func GetClaimIntervalTime(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (time.Dur
 
 // Get the percent of checkpoint rewards that goes to node operators
 func GetNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -132,7 +132,7 @@ func GetNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.CallOpts) 
 
 // Get the percent of checkpoint rewards that goes to ODAO members
 func GetTrustedNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -146,7 +146,7 @@ func GetTrustedNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.Cal
 // Get contracts
 var gogoRewardsPoolLock sync.Mutex
 
-func getRocketRewardsPool(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoRewardsPool(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoRewardsPoolLock.Lock()
 	defer gogoRewardsPoolLock.Unlock()
 	return ggp.GetContract("gogoRewardsPool")

@@ -15,7 +15,7 @@ import (
 
 // Estimate the gas of Deposit
 func EstimateDepositGas(ggp *gogopool.GoGoPool, minimumNodeFee float64, validatorPubkey ggptypes.ValidatorPubkey, validatorSignature ggptypes.ValidatorSignature, depositDataRoot common.Hash, salt *big.Int, expectedMinipoolAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNodeDeposit, err := getRocketNodeDeposit(ggp)
+	gogoNodeDeposit, err := getGoGoNodeDeposit(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -24,7 +24,7 @@ func EstimateDepositGas(ggp *gogopool.GoGoPool, minimumNodeFee float64, validato
 
 // Make a node deposit
 func Deposit(ggp *gogopool.GoGoPool, minimumNodeFee float64, validatorPubkey ggptypes.ValidatorPubkey, validatorSignature ggptypes.ValidatorSignature, depositDataRoot common.Hash, salt *big.Int, expectedMinipoolAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNodeDeposit, err := getRocketNodeDeposit(ggp)
+	gogoNodeDeposit, err := getGoGoNodeDeposit(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -37,7 +37,7 @@ func Deposit(ggp *gogopool.GoGoPool, minimumNodeFee float64, validatorPubkey ggp
 
 // Get the type of a deposit based on the amount
 func GetDepositType(ggp *gogopool.GoGoPool, amount *big.Int, opts *bind.CallOpts) (ggptypes.MinipoolDeposit, error) {
-	gogoNodeDeposit, err := getRocketNodeDeposit(ggp)
+	gogoNodeDeposit, err := getGoGoNodeDeposit(ggp)
 	if err != nil {
 		return ggptypes.Empty, err
 	}
@@ -52,7 +52,7 @@ func GetDepositType(ggp *gogopool.GoGoPool, amount *big.Int, opts *bind.CallOpts
 // Get contracts
 var gogoNodeDepositLock sync.Mutex
 
-func getRocketNodeDeposit(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNodeDeposit(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeDepositLock.Lock()
 	defer gogoNodeDepositLock.Unlock()
 	return ggp.GetContract("gogoNodeDeposit")

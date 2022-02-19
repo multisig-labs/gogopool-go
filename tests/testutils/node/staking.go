@@ -14,7 +14,7 @@ import (
 // Mint & stake an amount of GGP against a node
 func StakeGGP(ggp *gogopool.GoGoPool, ownerAccount, nodeAccount *accounts.Account, amount *big.Int) error {
 
-	// Get RocketNodeStaking contract address
+	// Get GoGoNodeStaking contract address
 	gogoNodeStakingAddress, err := ggp.GetAddress("gogoNodeStaking")
 	if err != nil {
 		return err

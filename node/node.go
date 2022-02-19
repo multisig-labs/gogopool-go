@@ -191,7 +191,7 @@ func GetNodeDetails(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bi
 
 // Get the number of nodes in the network
 func GetNodeCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -204,7 +204,7 @@ func GetNodeCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
 
 // Get a breakdown of the number of nodes per timezone
 func GetNodeCountPerTimezone(ggp *gogopool.GoGoPool, offset, limit *big.Int, opts *bind.CallOpts) ([]TimezoneCount, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return []TimezoneCount{}, err
 	}
@@ -217,7 +217,7 @@ func GetNodeCountPerTimezone(ggp *gogopool.GoGoPool, offset, limit *big.Int, opt
 
 // Get a node address by index
 func GetNodeAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -230,7 +230,7 @@ func GetNodeAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (commo
 
 // Check whether a node exists
 func GetNodeExists(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -243,7 +243,7 @@ func GetNodeExists(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bin
 
 // Get a node's timezone location
 func GetNodeTimezoneLocation(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (string, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return "", err
 	}
@@ -256,7 +256,7 @@ func GetNodeTimezoneLocation(ggp *gogopool.GoGoPool, nodeAddress common.Address,
 
 // Estimate the gas of RegisterNode
 func EstimateRegisterNodeGas(ggp *gogopool.GoGoPool, timezoneLocation string, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -269,7 +269,7 @@ func EstimateRegisterNodeGas(ggp *gogopool.GoGoPool, timezoneLocation string, op
 
 // Register a node
 func RegisterNode(ggp *gogopool.GoGoPool, timezoneLocation string, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -286,7 +286,7 @@ func RegisterNode(ggp *gogopool.GoGoPool, timezoneLocation string, opts *bind.Tr
 
 // Estimate the gas of SetTimezoneLocation
 func EstimateSetTimezoneLocationGas(ggp *gogopool.GoGoPool, timezoneLocation string, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -299,7 +299,7 @@ func EstimateSetTimezoneLocationGas(ggp *gogopool.GoGoPool, timezoneLocation str
 
 // Set a node's timezone location
 func SetTimezoneLocation(ggp *gogopool.GoGoPool, timezoneLocation string, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNodeManager, err := getRocketNodeManager(ggp)
+	gogoNodeManager, err := getGoGoNodeManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -317,7 +317,7 @@ func SetTimezoneLocation(ggp *gogopool.GoGoPool, timezoneLocation string, opts *
 // Returns an array of block numbers for prices submissions the given trusted node has submitted since fromBlock
 func GetPricesSubmissions(ggp *gogopool.GoGoPool, nodeAddress common.Address, fromBlock uint64, intervalSize *big.Int) (*[]uint64, error) {
 	// Get contracts
-	gogoNetworkPrices, err := getRocketNetworkPrices(ggp)
+	gogoNetworkPrices, err := getGoGoNetworkPrices(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -345,7 +345,7 @@ func GetPricesSubmissions(ggp *gogopool.GoGoPool, nodeAddress common.Address, fr
 // Returns an array of block numbers for balances submissions the given trusted node has submitted since fromBlock
 func GetBalancesSubmissions(ggp *gogopool.GoGoPool, nodeAddress common.Address, fromBlock uint64, intervalSize *big.Int) (*[]uint64, error) {
 	// Get contracts
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -374,7 +374,7 @@ func GetBalancesSubmissions(ggp *gogopool.GoGoPool, nodeAddress common.Address, 
 // Returns the most recent block number that the number of trusted nodes changed since fromBlock
 func getLatestMemberCountChangedBlock(ggp *gogopool.GoGoPool, fromBlock uint64, intervalSize *big.Int) (uint64, error) {
 	// Get contracts
-	gogoDaoNodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDaoNodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -583,7 +583,7 @@ func CalculateTrustedNodeBalancesParticipation(ggp *gogopool.GoGoPool, intervalS
 // Returns an array of members who submitted a balance since fromBlock
 func GetLatestBalancesSubmissions(ggp *gogopool.GoGoPool, fromBlock uint64, intervalSize *big.Int) ([]common.Address, error) {
 	// Get contracts
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -644,7 +644,7 @@ func GetTrustedNodeLatestBalancesParticipation(ggp *gogopool.GoGoPool, intervalS
 // Returns an array of members who submitted prices since fromBlock
 func GetLatestPricesSubmissions(ggp *gogopool.GoGoPool, fromBlock uint64, intervalSize *big.Int) ([]common.Address, error) {
 	// Get contracts
-	gogoNetworkPrices, err := getRocketNetworkPrices(ggp)
+	gogoNetworkPrices, err := getGoGoNetworkPrices(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -705,7 +705,7 @@ func GetTrustedNodeLatestPricesParticipation(ggp *gogopool.GoGoPool, intervalSiz
 // Get contracts
 var gogoNodeManagerLock sync.Mutex
 
-func getRocketNodeManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNodeManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeManagerLock.Lock()
 	defer gogoNodeManagerLock.Unlock()
 	return ggp.GetContract("gogoNodeManager")
@@ -713,7 +713,7 @@ func getRocketNodeManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 
 var gogoNetworkPricesLock sync.Mutex
 
-func getRocketNetworkPrices(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNetworkPrices(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkPricesLock.Lock()
 	defer gogoNetworkPricesLock.Unlock()
 	return ggp.GetContract("gogoNetworkPrices")
@@ -721,7 +721,7 @@ func getRocketNetworkPrices(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) 
 
 var gogoNetworkBalancesLock sync.Mutex
 
-func getRocketNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkBalancesLock.Lock()
 	defer gogoNetworkBalancesLock.Unlock()
 	return ggp.GetContract("gogoNetworkBalances")
@@ -729,7 +729,7 @@ func getRocketNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error
 
 var gogoDAONodeTrustedActionsLock sync.Mutex
 
-func getRocketDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedActionsLock.Lock()
 	defer gogoDAONodeTrustedActionsLock.Unlock()
 	return ggp.GetContract("gogoDAONodeTrustedActions")

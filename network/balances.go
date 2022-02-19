@@ -14,7 +14,7 @@ import (
 
 // Get the block number which network balances are current for
 func GetBalancesBlock(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -27,7 +27,7 @@ func GetBalancesBlock(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, erro
 
 // Get the current network total ETH balance
 func GetTotalETHBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func GetTotalETHBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, 
 
 // Get the current network staking ETH balance
 func GetStakingETHBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func GetStakingETHBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int
 
 // Get the current network total rETH supply
 func GetTotalRETHSupply(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func GetTotalRETHSupply(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, 
 
 // Get the current network ETH utilization rate
 func GetETHUtilizationRate(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -79,7 +79,7 @@ func GetETHUtilizationRate(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64
 
 // Estimate the gas of SubmitBalances
 func EstimateSubmitBalancesGas(ggp *gogopool.GoGoPool, block uint64, totalEth, stakingEth, rethSupply *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -88,7 +88,7 @@ func EstimateSubmitBalancesGas(ggp *gogopool.GoGoPool, block uint64, totalEth, s
 
 // Submit network balances for an epoch
 func SubmitBalances(ggp *gogopool.GoGoPool, block uint64, totalEth, stakingEth, rethSupply *big.Int, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -101,7 +101,7 @@ func SubmitBalances(ggp *gogopool.GoGoPool, block uint64, totalEth, stakingEth, 
 
 // Returns the latest block number that oracles should be reporting balances for
 func GetLatestReportableBalancesBlock(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNetworkBalances, err := getRocketNetworkBalances(ggp)
+	gogoNetworkBalances, err := getGoGoNetworkBalances(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -115,7 +115,7 @@ func GetLatestReportableBalancesBlock(ggp *gogopool.GoGoPool, opts *bind.CallOpt
 // Get contracts
 var gogoNetworkBalancesLock sync.Mutex
 
-func getRocketNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkBalancesLock.Lock()
 	defer gogoNetworkBalancesLock.Unlock()
 	return ggp.GetContract("gogoNetworkBalances")

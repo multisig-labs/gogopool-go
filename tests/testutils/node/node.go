@@ -54,7 +54,7 @@ func MintTrustedNodeBond(ggp *gogopool.GoGoPool, ownerAccount *accounts.Account,
 		return err
 	}
 
-	// Get RocketDAONodeTrustedActions contract address
+	// Get GoGoDAONodeTrustedActions contract address
 	gogoDAONodeTrustedActionsAddress, err := ggp.GetAddress("gogoDAONodeTrustedActions")
 	if err != nil {
 		return err

@@ -14,7 +14,7 @@ import (
 
 // Get whether trusted node reward claims are enabled
 func GetTrustedNodeClaimsEnabled(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (bool, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -23,7 +23,7 @@ func GetTrustedNodeClaimsEnabled(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (b
 
 // Get whether a trusted node rewards claimer can claim
 func GetTrustedNodeClaimPossible(ggp *gogopool.GoGoPool, claimerAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -32,7 +32,7 @@ func GetTrustedNodeClaimPossible(ggp *gogopool.GoGoPool, claimerAddress common.A
 
 // Get the percentage of rewards available for a trusted node rewards claimer
 func GetTrustedNodeClaimRewardsPerc(ggp *gogopool.GoGoPool, claimerAddress common.Address, opts *bind.CallOpts) (float64, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -41,7 +41,7 @@ func GetTrustedNodeClaimRewardsPerc(ggp *gogopool.GoGoPool, claimerAddress commo
 
 // Get the total amount of rewards available for a trusted node rewards claimer
 func GetTrustedNodeClaimRewardsAmount(ggp *gogopool.GoGoPool, claimerAddress common.Address, opts *bind.CallOpts) (*big.Int, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func GetTrustedNodeClaimRewardsAmount(ggp *gogopool.GoGoPool, claimerAddress com
 
 // Estimate the gas of ClaimTrustedNodeRewards
 func EstimateClaimTrustedNodeRewardsGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -59,7 +59,7 @@ func EstimateClaimTrustedNodeRewardsGas(ggp *gogopool.GoGoPool, opts *bind.Trans
 
 // Claim trusted node rewards
 func ClaimTrustedNodeRewards(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -69,11 +69,11 @@ func ClaimTrustedNodeRewards(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (c
 // Filters through token claim events and sums the total amount claimed by claimerAddress
 func CalculateLifetimeTrustedNodeRewards(ggp *gogopool.GoGoPool, claimerAddress common.Address, intervalSize *big.Int, startBlock *big.Int) (*big.Int, error) {
 	// Get contracts
-	gogoRewardsPool, err := getRocketRewardsPool(ggp)
+	gogoRewardsPool, err := getGoGoRewardsPool(ggp)
 	if err != nil {
 		return nil, err
 	}
-	gogoClaimTrustedNode, err := getRocketClaimTrustedNode(ggp)
+	gogoClaimTrustedNode, err := getGoGoClaimTrustedNode(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +117,7 @@ func GetTrustedNodeTotalClaimed(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*b
 // Get contracts
 var gogoClaimTrustedNodeLock sync.Mutex
 
-func getRocketClaimTrustedNode(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoClaimTrustedNode(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoClaimTrustedNodeLock.Lock()
 	defer gogoClaimTrustedNodeLock.Unlock()
 	return ggp.GetContract("gogoClaimTrustedNode")

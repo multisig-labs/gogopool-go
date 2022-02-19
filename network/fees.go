@@ -13,7 +13,7 @@ import (
 
 // Get the current network node demand in ETH
 func GetNodeDemand(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoNetworkFees, err := getRocketNetworkFees(ggp)
+	gogoNetworkFees, err := getGoGoNetworkFees(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func GetNodeDemand(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error
 
 // Get the current network node commission rate
 func GetNodeFee(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {
-	gogoNetworkFees, err := getRocketNetworkFees(ggp)
+	gogoNetworkFees, err := getGoGoNetworkFees(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -39,7 +39,7 @@ func GetNodeFee(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {
 
 // Get the network node fee for a node demand value
 func GetNodeFeeByDemand(ggp *gogopool.GoGoPool, nodeDemand *big.Int, opts *bind.CallOpts) (float64, error) {
-	gogoNetworkFees, err := getRocketNetworkFees(ggp)
+	gogoNetworkFees, err := getGoGoNetworkFees(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -53,7 +53,7 @@ func GetNodeFeeByDemand(ggp *gogopool.GoGoPool, nodeDemand *big.Int, opts *bind.
 // Get contracts
 var gogoNetworkFeesLock sync.Mutex
 
-func getRocketNetworkFees(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoNetworkFees(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkFeesLock.Lock()
 	defer gogoNetworkFeesLock.Unlock()
 	return ggp.GetContract("gogoNetworkFees")

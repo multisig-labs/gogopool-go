@@ -138,7 +138,7 @@ func GetMinipoolAddresses(ggp *gogopool.GoGoPool, opts *bind.CallOpts) ([]common
 // Get the addresses of all minipools in prelaunch status
 func GetPrelaunchMinipoolAddresses(ggp *gogopool.GoGoPool, opts *bind.CallOpts) ([]common.Address, error) {
 
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return []common.Address{}, err
 	}
@@ -295,7 +295,7 @@ func GetMinipoolDetails(ggp *gogopool.GoGoPool, minipoolAddress common.Address, 
 
 // Get the minipool count
 func GetMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -308,7 +308,7 @@ func GetMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, erro
 
 // Get the number of finalised minipools in the network
 func GetFinalisedMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -321,7 +321,7 @@ func GetFinalisedMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uin
 
 // Get the number of active minipools in the network
 func GetActiveMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -334,7 +334,7 @@ func GetActiveMinipoolCount(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (uint64
 
 // Get the minipool count by status
 func GetMinipoolCountPerStatus(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (MinipoolCountsPerStatus, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return MinipoolCountsPerStatus{}, err
 	}
@@ -384,7 +384,7 @@ func GetMinipoolCountPerStatus(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (Min
 
 // Get a minipool address by index
 func GetMinipoolAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -397,7 +397,7 @@ func GetMinipoolAt(ggp *gogopool.GoGoPool, index uint64, opts *bind.CallOpts) (c
 
 // Get a node's minipool count
 func GetNodeMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -410,7 +410,7 @@ func GetNodeMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Address, op
 
 // Get the number of minipools owned by a node that are not finalised
 func GetNodeActiveMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -423,7 +423,7 @@ func GetNodeActiveMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Addre
 
 // Get the number of minipools owned by a node that are finalised
 func GetNodeFinalisedMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -436,7 +436,7 @@ func GetNodeFinalisedMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Ad
 
 // Get a node's minipool address by index
 func GetNodeMinipoolAt(ggp *gogopool.GoGoPool, nodeAddress common.Address, index uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -449,7 +449,7 @@ func GetNodeMinipoolAt(ggp *gogopool.GoGoPool, nodeAddress common.Address, index
 
 // Get a node's validating minipool count
 func GetNodeValidatingMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.Address, opts *bind.CallOpts) (uint64, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return 0, err
 	}
@@ -462,7 +462,7 @@ func GetNodeValidatingMinipoolCount(ggp *gogopool.GoGoPool, nodeAddress common.A
 
 // Get a node's validating minipool address by index
 func GetNodeValidatingMinipoolAt(ggp *gogopool.GoGoPool, nodeAddress common.Address, index uint64, opts *bind.CallOpts) (common.Address, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -475,7 +475,7 @@ func GetNodeValidatingMinipoolAt(ggp *gogopool.GoGoPool, nodeAddress common.Addr
 
 // Get a minipool address by validator pubkey
 func GetMinipoolByPubkey(ggp *gogopool.GoGoPool, pubkey ggptypes.ValidatorPubkey, opts *bind.CallOpts) (common.Address, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -488,7 +488,7 @@ func GetMinipoolByPubkey(ggp *gogopool.GoGoPool, pubkey ggptypes.ValidatorPubkey
 
 // Check whether a minipool exists
 func GetMinipoolExists(ggp *gogopool.GoGoPool, minipoolAddress common.Address, opts *bind.CallOpts) (bool, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return false, err
 	}
@@ -501,7 +501,7 @@ func GetMinipoolExists(ggp *gogopool.GoGoPool, minipoolAddress common.Address, o
 
 // Get a minipool's validator pubkey
 func GetMinipoolPubkey(ggp *gogopool.GoGoPool, minipoolAddress common.Address, opts *bind.CallOpts) (ggptypes.ValidatorPubkey, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return ggptypes.ValidatorPubkey{}, err
 	}
@@ -512,9 +512,9 @@ func GetMinipoolPubkey(ggp *gogopool.GoGoPool, minipoolAddress common.Address, o
 	return *pubkey, nil
 }
 
-// Get the CreationCode binary for the RocketMinipool contract that will be created by node deposits
+// Get the CreationCode binary for the GoGoMinipool contract that will be created by node deposits
 func GetMinipoolBytecode(ggp *gogopool.GoGoPool, opts *bind.CallOpts) ([]byte, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return []byte{}, err
 	}
@@ -527,7 +527,7 @@ func GetMinipoolBytecode(ggp *gogopool.GoGoPool, opts *bind.CallOpts) ([]byte, e
 
 // Get the 0x01-based Beacon Chain withdrawal credentials for a given minipool
 func GetMinipoolWithdrawalCredentials(ggp *gogopool.GoGoPool, minipoolAddress common.Address, opts *bind.CallOpts) (common.Hash, error) {
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -541,7 +541,7 @@ func GetMinipoolWithdrawalCredentials(ggp *gogopool.GoGoPool, minipoolAddress co
 // Get contracts
 var gogoMinipoolManagerLock sync.Mutex
 
-func getRocketMinipoolManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoMinipoolManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolManagerLock.Lock()
 	defer gogoMinipoolManagerLock.Unlock()
 	return ggp.GetContract("gogoMinipoolManager")

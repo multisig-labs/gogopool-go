@@ -15,7 +15,7 @@ import (
 
 // Estimate the gas of ProposeInviteMember
 func EstimateProposeInviteMemberGas(ggp *gogopool.GoGoPool, message string, newMemberAddress common.Address, newMemberId, newMemberUrl string, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -29,7 +29,7 @@ func EstimateProposeInviteMemberGas(ggp *gogopool.GoGoPool, message string, newM
 
 // Submit a proposal to invite a new member to the trusted node DAO
 func ProposeInviteMember(ggp *gogopool.GoGoPool, message string, newMemberAddress common.Address, newMemberId, newMemberUrl string, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -43,7 +43,7 @@ func ProposeInviteMember(ggp *gogopool.GoGoPool, message string, newMemberAddres
 
 // Estimate the gas of ProposeMemberLeave
 func EstimateProposeMemberLeaveGas(ggp *gogopool.GoGoPool, message string, memberAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -56,7 +56,7 @@ func EstimateProposeMemberLeaveGas(ggp *gogopool.GoGoPool, message string, membe
 
 // Submit a proposal for a member to leave the trusted node DAO
 func ProposeMemberLeave(ggp *gogopool.GoGoPool, message string, memberAddress common.Address, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -69,7 +69,7 @@ func ProposeMemberLeave(ggp *gogopool.GoGoPool, message string, memberAddress co
 
 // Estimate the gas of ProposeReplaceMember
 func EstimateProposeReplaceMemberGas(ggp *gogopool.GoGoPool, message string, memberAddress, newMemberAddress common.Address, newMemberId, newMemberUrl string, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -83,7 +83,7 @@ func EstimateProposeReplaceMemberGas(ggp *gogopool.GoGoPool, message string, mem
 
 // Submit a proposal to replace a member in the trusted node DAO
 func ProposeReplaceMember(ggp *gogopool.GoGoPool, message string, memberAddress, newMemberAddress common.Address, newMemberId, newMemberUrl string, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -97,7 +97,7 @@ func ProposeReplaceMember(ggp *gogopool.GoGoPool, message string, memberAddress,
 
 // Estimate the gas of ProposeKickMember
 func EstimateProposeKickMemberGas(ggp *gogopool.GoGoPool, message string, memberAddress common.Address, ggpFineAmount *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -110,7 +110,7 @@ func EstimateProposeKickMemberGas(ggp *gogopool.GoGoPool, message string, member
 
 // Submit a proposal to kick a member from the trusted node DAO
 func ProposeKickMember(ggp *gogopool.GoGoPool, message string, memberAddress common.Address, ggpFineAmount *big.Int, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -123,7 +123,7 @@ func ProposeKickMember(ggp *gogopool.GoGoPool, message string, memberAddress com
 
 // Estimate the gas of ProposeSetBool
 func EstimateProposeSetBoolGas(ggp *gogopool.GoGoPool, message, contractName, settingPath string, value bool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -136,7 +136,7 @@ func EstimateProposeSetBoolGas(ggp *gogopool.GoGoPool, message, contractName, se
 
 // Submit a proposal to update a bool trusted node DAO setting
 func ProposeSetBool(ggp *gogopool.GoGoPool, message, contractName, settingPath string, value bool, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -149,7 +149,7 @@ func ProposeSetBool(ggp *gogopool.GoGoPool, message, contractName, settingPath s
 
 // Estimate the gas of ProposeSetUint
 func EstimateProposeSetUintGas(ggp *gogopool.GoGoPool, message, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -162,7 +162,7 @@ func EstimateProposeSetUintGas(ggp *gogopool.GoGoPool, message, contractName, se
 
 // Submit a proposal to update a uint trusted node DAO setting
 func ProposeSetUint(ggp *gogopool.GoGoPool, message, contractName, settingPath string, value *big.Int, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -179,7 +179,7 @@ func EstimateProposeUpgradeContractGas(ggp *gogopool.GoGoPool, message, upgradeT
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -196,7 +196,7 @@ func ProposeUpgradeContract(ggp *gogopool.GoGoPool, message, upgradeType, contra
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -209,7 +209,7 @@ func ProposeUpgradeContract(ggp *gogopool.GoGoPool, message, upgradeType, contra
 
 // Estimate the gas of a proposal submission
 func EstimateProposalGas(ggp *gogopool.GoGoPool, message string, payload []byte, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -219,7 +219,7 @@ func EstimateProposalGas(ggp *gogopool.GoGoPool, message string, payload []byte,
 // Submit a trusted node DAO proposal
 // Returns the ID of the new proposal
 func SubmitProposal(ggp *gogopool.GoGoPool, message string, payload []byte, opts *bind.TransactOpts) (uint64, common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return 0, common.Hash{}, err
 	}
@@ -236,7 +236,7 @@ func SubmitProposal(ggp *gogopool.GoGoPool, message string, payload []byte, opts
 
 // Estimate the gas of CancelProposal
 func EstimateCancelProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -245,7 +245,7 @@ func EstimateCancelProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, opts *
 
 // Cancel a submitted proposal
 func CancelProposal(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -258,7 +258,7 @@ func CancelProposal(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.Transa
 
 // Estimate the gas of VoteOnProposal
 func EstimateVoteOnProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, support bool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -267,7 +267,7 @@ func EstimateVoteOnProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, suppor
 
 // Vote on a submitted proposal
 func VoteOnProposal(ggp *gogopool.GoGoPool, proposalId uint64, support bool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -280,7 +280,7 @@ func VoteOnProposal(ggp *gogopool.GoGoPool, proposalId uint64, support bool, opt
 
 // Estimate the gas of ExecuteProposal
 func EstimateExecuteProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -289,7 +289,7 @@ func EstimateExecuteProposalGas(ggp *gogopool.GoGoPool, proposalId uint64, opts 
 
 // Execute a submitted proposal
 func ExecuteProposal(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedProposals, err := getRocketDAONodeTrustedProposals(ggp)
+	gogoDAONodeTrustedProposals, err := getGoGoDAONodeTrustedProposals(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -303,7 +303,7 @@ func ExecuteProposal(ggp *gogopool.GoGoPool, proposalId uint64, opts *bind.Trans
 // Get contracts
 var gogoDAONodeTrustedProposalsLock sync.Mutex
 
-func getRocketDAONodeTrustedProposals(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAONodeTrustedProposals(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedProposalsLock.Lock()
 	defer gogoDAONodeTrustedProposalsLock.Unlock()
 	return ggp.GetContract("gogoDAONodeTrustedProposals")

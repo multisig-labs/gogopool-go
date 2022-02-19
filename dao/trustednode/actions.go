@@ -12,7 +12,7 @@ import (
 
 // Estimate the gas of Join
 func EstimateJoinGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -22,7 +22,7 @@ func EstimateJoinGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.
 // Join the trusted node DAO
 // Requires an executed invite proposal
 func Join(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -35,7 +35,7 @@ func Join(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, error) 
 
 // Estimate the gas of Leave
 func EstimateLeaveGas(ggp *gogopool.GoGoPool, ggpBondRefundAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -45,7 +45,7 @@ func EstimateLeaveGas(ggp *gogopool.GoGoPool, ggpBondRefundAddress common.Addres
 // Leave the trusted node DAO
 // Requires an executed leave proposal
 func Leave(ggp *gogopool.GoGoPool, ggpBondRefundAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -58,7 +58,7 @@ func Leave(ggp *gogopool.GoGoPool, ggpBondRefundAddress common.Address, opts *bi
 
 // Estimate the gas of MakeChallenge
 func EstimateMakeChallengeGas(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -67,7 +67,7 @@ func EstimateMakeChallengeGas(ggp *gogopool.GoGoPool, memberAddress common.Addre
 
 // Make a challenge against a node
 func MakeChallenge(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -80,7 +80,7 @@ func MakeChallenge(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *b
 
 // Estimate the gas of DecideChallenge
 func EstimateDecideChallengeGas(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -89,7 +89,7 @@ func EstimateDecideChallengeGas(ggp *gogopool.GoGoPool, memberAddress common.Add
 
 // Decide a challenge against a node
 func DecideChallenge(ggp *gogopool.GoGoPool, memberAddress common.Address, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDAONodeTrustedActions, err := getRocketDAONodeTrustedActions(ggp)
+	gogoDAONodeTrustedActions, err := getGoGoDAONodeTrustedActions(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -103,7 +103,7 @@ func DecideChallenge(ggp *gogopool.GoGoPool, memberAddress common.Address, opts 
 // Get contracts
 var gogoDAONodeTrustedActionsLock sync.Mutex
 
-func getRocketDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedActionsLock.Lock()
 	defer gogoDAONodeTrustedActionsLock.Unlock()
 	return ggp.GetContract("gogoDAONodeTrustedActions")

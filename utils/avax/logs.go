@@ -50,7 +50,7 @@ func FilterContractLogs(ggp *gogopool.GoGoPool, contractName string, q FilterQue
 func GetLogs(ggp *gogopool.GoGoPool, addressFilter []common.Address, topicFilter [][]common.Hash, intervalSize, fromBlock, toBlock *big.Int, blockHash *common.Hash) ([]types.Log, error) {
 	var logs []types.Log
 
-	// Get the block that Rocket Pool was deployed on as the lower bound if one wasn't specified
+	// Get the block that GoGo Pool was deployed on as the lower bound if one wasn't specified
 	if fromBlock == nil {
 		var err error
 		deployBlockHash := crypto.Keccak256Hash([]byte("deploy.block"))

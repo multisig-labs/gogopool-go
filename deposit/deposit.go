@@ -13,7 +13,7 @@ import (
 
 // Get the deposit pool balance
 func GetBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func GetBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
 
 // Get the excess deposit pool balance
 func GetExcessBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +39,7 @@ func GetExcessBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, er
 
 // Estimate the gas of Deposit
 func EstimateDepositGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -48,7 +48,7 @@ func EstimateDepositGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopo
 
 // Make a deposit
 func Deposit(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -61,7 +61,7 @@ func Deposit(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, erro
 
 // Estimate the gas of AssignDeposits
 func EstimateAssignDepositsGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (gogopool.GasInfo, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
@@ -70,7 +70,7 @@ func EstimateAssignDepositsGas(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) 
 
 // Assign deposits
 func AssignDeposits(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Hash, error) {
-	gogoDepositPool, err := getRocketDepositPool(ggp)
+	gogoDepositPool, err := getGoGoDepositPool(ggp)
 	if err != nil {
 		return common.Hash{}, err
 	}
@@ -84,7 +84,7 @@ func AssignDeposits(ggp *gogopool.GoGoPool, opts *bind.TransactOpts) (common.Has
 // Get contracts
 var gogoDepositPoolLock sync.Mutex
 
-func getRocketDepositPool(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoDepositPool(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDepositPoolLock.Lock()
 	defer gogoDepositPoolLock.Unlock()
 	return ggp.GetContract("gogoDepositPool")

@@ -26,7 +26,7 @@ func GetNodeSalt(nodeAddress common.Address, salt *big.Int) common.Hash {
 func GenerateAddress(ggp *gogopool.GoGoPool, nodeAddress common.Address, depositType ggptypes.MinipoolDeposit, salt *big.Int, minipoolBytecode []byte) (common.Address, error) {
 
 	// Get dependencies
-	gogoMinipoolManager, err := getRocketMinipoolManager(ggp)
+	gogoMinipoolManager, err := getGoGoMinipoolManager(ggp)
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -63,7 +63,7 @@ func GenerateAddress(ggp *gogopool.GoGoPool, nodeAddress common.Address, deposit
 // Get contracts
 var gogoMinipoolManagerLock sync.Mutex
 
-func getRocketMinipoolManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
+func getGoGoMinipoolManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolManagerLock.Lock()
 	defer gogoMinipoolManagerLock.Unlock()
 	return ggp.GetContract("gogoMinipoolManager")
