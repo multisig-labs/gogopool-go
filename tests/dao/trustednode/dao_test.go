@@ -165,7 +165,7 @@ func TestUpgradeContract(t *testing.T) {
 	})
 
 	// Upgrade contract
-	contractName := "gogoDepositPool"
+	contractName := "rocketDepositPool"
 	contractNewAddress := common.HexToAddress("0x1111111111111111111111111111111111111111")
 	contractNewAbi := "[{\"name\":\"foo\",\"type\":\"function\",\"inputs\":[],\"outputs\":[]}]"
 	if _, err := trustednodedao.BootstrapUpgrade(ggp, "upgradeContract", contractName, contractNewAbi, contractNewAddress, ownerAccount.GetTransactor()); err != nil {

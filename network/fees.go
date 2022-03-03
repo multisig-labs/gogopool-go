@@ -56,5 +56,5 @@ var gogoNetworkFeesLock sync.Mutex
 func getGoGoNetworkFees(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkFeesLock.Lock()
 	defer gogoNetworkFeesLock.Unlock()
-	return ggp.GetContract("gogoNetworkFees")
+	return ggp.GetContract("rocketNetworkFees")
 }

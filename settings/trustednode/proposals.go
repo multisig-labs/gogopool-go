@@ -14,7 +14,7 @@ import (
 
 // Config
 const (
-	ProposalsSettingsContractName = "gogoDAONodeTrustedSettingsProposals"
+	ProposalsSettingsContractName = "rocketDAONodeTrustedSettingsProposals"
 	CooldownTimeSettingPath       = "proposal.cooldown.time"
 	VoteTimeSettingPath           = "proposal.vote.time"
 	VoteDelayTimeSettingPath      = "proposal.vote.delay.time"

@@ -23,15 +23,15 @@ func TestRewardsSettings(t *testing.T) {
 
 	// Bootstrap a claimer & get claimer settings
 	claimerPerc := 0.1
-	if _, err := protocoldao.BootstrapClaimer(ggp, "gogoClaimNode", claimerPerc, ownerAccount.GetTransactor()); err != nil {
+	if _, err := protocoldao.BootstrapClaimer(ggp, "rocketClaimNode", claimerPerc, ownerAccount.GetTransactor()); err != nil {
 		t.Error(err)
 	} else {
-		if value, err := protocolsettings.GetRewardsClaimerPerc(ggp, "gogoClaimNode", nil); err != nil {
+		if value, err := protocolsettings.GetRewardsClaimerPerc(ggp, "rocketClaimNode", nil); err != nil {
 			t.Error(err)
 		} else if value != claimerPerc {
 			t.Errorf("Incorrect rewards claimer percent %f", value)
 		}
-		if value, err := protocolsettings.GetRewardsClaimerPercTimeUpdated(ggp, "gogoClaimNode", nil); err != nil {
+		if value, err := protocolsettings.GetRewardsClaimerPercTimeUpdated(ggp, "rocketClaimNode", nil); err != nil {
 			t.Error(err)
 		} else if value == 0 {
 			t.Errorf("Incorrect rewards claimer percent time updated %d", value)

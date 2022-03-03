@@ -14,7 +14,7 @@ import (
 
 // Config
 const (
-	MinipoolSettingsContractName = "gogoDAONodeTrustedSettingsMinipool"
+	MinipoolSettingsContractName = "rocketDAONodeTrustedSettingsMinipool"
 	ScrubPeriodPath              = "minipool.scrub.period"
 	ScrubPenaltyEnabledPath      = "minipool.scrub.penalty.enabled"
 )

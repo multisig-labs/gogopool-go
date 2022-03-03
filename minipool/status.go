@@ -38,5 +38,5 @@ var gogoMinipoolStatusLock sync.Mutex
 func getGoGoMinipoolStatus(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolStatusLock.Lock()
 	defer gogoMinipoolStatusLock.Unlock()
-	return ggp.GetContract("gogoMinipoolStatus")
+	return ggp.GetContract("rocketMinipoolStatus")
 }

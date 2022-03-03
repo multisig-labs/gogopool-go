@@ -50,7 +50,7 @@ func TestStakeGGP(t *testing.T) {
 	}
 
 	// Approve GGP transfer for staking
-	gogoNodeStakingAddress, err := ggp.GetAddress("gogoNodeStaking")
+	gogoNodeStakingAddress, err := ggp.GetAddress("rocketNodeStaking")
 	if err != nil {
 		t.Fatal(err)
 	}

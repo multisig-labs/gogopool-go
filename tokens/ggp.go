@@ -167,5 +167,5 @@ var gogoTokenGGPLock sync.Mutex
 func getGoGoTokenGGP(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoTokenGGPLock.Lock()
 	defer gogoTokenGGPLock.Unlock()
-	return ggp.GetContract("gogoTokenGGP")
+	return ggp.GetContract("rocketTokenGGP")
 }

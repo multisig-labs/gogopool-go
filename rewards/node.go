@@ -106,12 +106,12 @@ func CalculateLifetimeNodeRewards(ggp *gogopool.GoGoPool, claimerAddress common.
 
 // Get the time that the user registered as a claimer
 func GetNodeRegistrationTime(ggp *gogopool.GoGoPool, claimerAddress common.Address, opts *bind.CallOpts) (time.Time, error) {
-	return getClaimingContractUserRegisteredTime(ggp, "gogoClaimNode", claimerAddress, opts)
+	return getClaimingContractUserRegisteredTime(ggp, "rocketClaimNode", claimerAddress, opts)
 }
 
 // Get the total rewards claimed for this claiming contract this interval
 func GetNodeTotalClaimed(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	return getClaimingContractTotalClaimed(ggp, "gogoClaimNode", opts)
+	return getClaimingContractTotalClaimed(ggp, "rocketClaimNode", opts)
 }
 
 // Get contracts
@@ -120,5 +120,5 @@ var gogoClaimNodeLock sync.Mutex
 func getGoGoClaimNode(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoClaimNodeLock.Lock()
 	defer gogoClaimNodeLock.Unlock()
-	return ggp.GetContract("gogoClaimNode")
+	return ggp.GetContract("rocketClaimNode")
 }

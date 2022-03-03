@@ -55,5 +55,5 @@ var gogoNodeDepositLock sync.Mutex
 func getGoGoNodeDeposit(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeDepositLock.Lock()
 	defer gogoNodeDepositLock.Unlock()
-	return ggp.GetContract("gogoNodeDeposit")
+	return ggp.GetContract("rocketNodeDeposit")
 }

@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const NodeSettingsContractName = "gogoDAOProtocolSettingsNode"
+const NodeSettingsContractName = "rocketDAOProtocolSettingsNode"
 
 // Node registrations currently enabled
 func GetNodeRegistrationEnabled(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (bool, error) {

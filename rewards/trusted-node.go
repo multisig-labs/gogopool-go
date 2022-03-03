@@ -106,12 +106,12 @@ func CalculateLifetimeTrustedNodeRewards(ggp *gogopool.GoGoPool, claimerAddress 
 
 // Get the time that the user registered as a claimer
 func GetTrustedNodeRegistrationTime(ggp *gogopool.GoGoPool, claimerAddress common.Address, opts *bind.CallOpts) (time.Time, error) {
-	return getClaimingContractUserRegisteredTime(ggp, "gogoClaimTrustedNode", claimerAddress, opts)
+	return getClaimingContractUserRegisteredTime(ggp, "rocketClaimTrustedNode", claimerAddress, opts)
 }
 
 // Get the total rewards claimed for this claiming contract this interval
 func GetTrustedNodeTotalClaimed(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {
-	return getClaimingContractTotalClaimed(ggp, "gogoClaimTrustedNode", opts)
+	return getClaimingContractTotalClaimed(ggp, "rocketClaimTrustedNode", opts)
 }
 
 // Get contracts
@@ -120,5 +120,5 @@ var gogoClaimTrustedNodeLock sync.Mutex
 func getGoGoClaimTrustedNode(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoClaimTrustedNodeLock.Lock()
 	defer gogoClaimTrustedNodeLock.Unlock()
-	return ggp.GetContract("gogoClaimTrustedNode")
+	return ggp.GetContract("rocketClaimTrustedNode")
 }

@@ -708,7 +708,7 @@ var gogoNodeManagerLock sync.Mutex
 func getGoGoNodeManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeManagerLock.Lock()
 	defer gogoNodeManagerLock.Unlock()
-	return ggp.GetContract("gogoNodeManager")
+	return ggp.GetContract("rocketNodeManager")
 }
 
 var gogoNetworkPricesLock sync.Mutex
@@ -716,7 +716,7 @@ var gogoNetworkPricesLock sync.Mutex
 func getGoGoNetworkPrices(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkPricesLock.Lock()
 	defer gogoNetworkPricesLock.Unlock()
-	return ggp.GetContract("gogoNetworkPrices")
+	return ggp.GetContract("rocketNetworkPrices")
 }
 
 var gogoNetworkBalancesLock sync.Mutex
@@ -724,7 +724,7 @@ var gogoNetworkBalancesLock sync.Mutex
 func getGoGoNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkBalancesLock.Lock()
 	defer gogoNetworkBalancesLock.Unlock()
-	return ggp.GetContract("gogoNetworkBalances")
+	return ggp.GetContract("rocketNetworkBalances")
 }
 
 var gogoDAONodeTrustedActionsLock sync.Mutex
@@ -732,5 +732,5 @@ var gogoDAONodeTrustedActionsLock sync.Mutex
 func getGoGoDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedActionsLock.Lock()
 	defer gogoDAONodeTrustedActionsLock.Unlock()
-	return ggp.GetContract("gogoDAONodeTrustedActions")
+	return ggp.GetContract("rocketDAONodeTrustedActions")
 }

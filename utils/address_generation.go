@@ -30,7 +30,7 @@ func GenerateAddress(ggp *gogopool.GoGoPool, nodeAddress common.Address, deposit
 	if err != nil {
 		return common.Address{}, err
 	}
-	minipoolAbi, err := ggp.GetABI("gogoMinipool")
+	minipoolAbi, err := ggp.GetABI("rocketMinipool")
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -66,5 +66,5 @@ var gogoMinipoolManagerLock sync.Mutex
 func getGoGoMinipoolManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolManagerLock.Lock()
 	defer gogoMinipoolManagerLock.Unlock()
-	return ggp.GetContract("gogoMinipoolManager")
+	return ggp.GetContract("rocketMinipoolManager")
 }

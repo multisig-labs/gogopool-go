@@ -106,5 +106,5 @@ var gogoDAOProtocolLock sync.Mutex
 func getGoGoDAOProtocol(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAOProtocolLock.Lock()
 	defer gogoDAOProtocolLock.Unlock()
-	return ggp.GetContract("gogoDAOProtocol")
+	return ggp.GetContract("rocketDAOProtocol")
 }

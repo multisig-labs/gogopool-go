@@ -118,5 +118,5 @@ var gogoNetworkBalancesLock sync.Mutex
 func getGoGoNetworkBalances(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNetworkBalancesLock.Lock()
 	defer gogoNetworkBalancesLock.Unlock()
-	return ggp.GetContract("gogoNetworkBalances")
+	return ggp.GetContract("rocketNetworkBalances")
 }

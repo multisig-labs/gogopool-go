@@ -14,7 +14,7 @@ import (
 func MintGGP(ggp *gogopool.GoGoPool, ownerAccount *accounts.Account, toAccount *accounts.Account, amount *big.Int) error {
 
 	// Get GGP token contract address
-	gogoTokenGGPAddress, err := ggp.GetAddress("gogoTokenGGP")
+	gogoTokenGGPAddress, err := ggp.GetAddress("rocketTokenGGP")
 	if err != nil {
 		return err
 	}
@@ -37,7 +37,7 @@ func MintGGP(ggp *gogopool.GoGoPool, ownerAccount *accounts.Account, toAccount *
 
 // Mint an amount of fixed-supply GGP to an account
 func MintFixedSupplyGGP(ggp *gogopool.GoGoPool, ownerAccount *accounts.Account, toAccount *accounts.Account, amount *big.Int) error {
-	gogoTokenFixedSupplyGGP, err := ggp.GetContract("gogoTokenGGPFixedSupply")
+	gogoTokenFixedSupplyGGP, err := ggp.GetContract("rocketTokenGGPFixedSupply")
 	if err != nil {
 		return err
 	}

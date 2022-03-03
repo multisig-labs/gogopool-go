@@ -124,7 +124,7 @@ func GetNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.CallOpts) 
 		return 0, err
 	}
 	perc := new(*big.Int)
-	if err := gogoRewardsPool.Call(opts, perc, "getClaimingContractPerc", "gogoClaimNode"); err != nil {
+	if err := gogoRewardsPool.Call(opts, perc, "getClaimingContractPerc", "rocketClaimNode"); err != nil {
 		return 0, fmt.Errorf("Could not get node operator rewards percent: %w", err)
 	}
 	return avax.WeiToEth(*perc), nil
@@ -137,7 +137,7 @@ func GetTrustedNodeOperatorRewardsPercent(ggp *gogopool.GoGoPool, opts *bind.Cal
 		return 0, err
 	}
 	perc := new(*big.Int)
-	if err := gogoRewardsPool.Call(opts, perc, "getClaimingContractPerc", "gogoClaimTrustedNode"); err != nil {
+	if err := gogoRewardsPool.Call(opts, perc, "getClaimingContractPerc", "rocketClaimTrustedNode"); err != nil {
 		return 0, fmt.Errorf("Could not get trusted node operator rewards percent: %w", err)
 	}
 	return avax.WeiToEth(*perc), nil
@@ -149,5 +149,5 @@ var gogoRewardsPoolLock sync.Mutex
 func getGoGoRewardsPool(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoRewardsPoolLock.Lock()
 	defer gogoRewardsPoolLock.Unlock()
-	return ggp.GetContract("gogoRewardsPool")
+	return ggp.GetContract("rocketRewardsPool")
 }

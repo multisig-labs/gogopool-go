@@ -601,5 +601,5 @@ var gogoMinipoolLock sync.Mutex
 func getMinipoolContract(ggp *gogopool.GoGoPool, minipoolAddress common.Address) (*gogopool.Contract, error) {
 	gogoMinipoolLock.Lock()
 	defer gogoMinipoolLock.Unlock()
-	return ggp.MakeContract("gogoMinipool", minipoolAddress)
+	return ggp.MakeContract("rocketMinipool", minipoolAddress)
 }

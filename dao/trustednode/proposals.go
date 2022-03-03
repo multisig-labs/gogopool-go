@@ -306,5 +306,5 @@ var gogoDAONodeTrustedProposalsLock sync.Mutex
 func getGoGoDAONodeTrustedProposals(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedProposalsLock.Lock()
 	defer gogoDAONodeTrustedProposalsLock.Unlock()
-	return ggp.GetContract("gogoDAONodeTrustedProposals")
+	return ggp.GetContract("rocketDAONodeTrustedProposals")
 }

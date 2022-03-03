@@ -45,7 +45,7 @@ func CreateMinipool(t *testing.T, ggp *gogopool.GoGoPool, ownerAccount, nodeAcco
 	}
 
 	// Get minipool manager contract
-	gogoMinipoolManager, err := ggp.GetContract("gogoMinipoolManager")
+	gogoMinipoolManager, err := ggp.GetContract("rocketMinipoolManager")
 	if err != nil {
 		return nil, err
 	}

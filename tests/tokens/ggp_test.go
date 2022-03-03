@@ -195,7 +195,7 @@ func TestSwapFixedSupplyGGPForGGP(t *testing.T) {
 	}
 
 	// Approve fixed-supply GGP spend
-	gogoTokenGGPAddress, err := ggp.GetAddress("gogoTokenGGP")
+	gogoTokenGGPAddress, err := ggp.GetAddress("rocketTokenGGP")
 	if err != nil {
 		t.Fatal(err)
 	}

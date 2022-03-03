@@ -178,5 +178,5 @@ var gogoNodeStakingLock sync.Mutex
 func getGoGoNodeStaking(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoNodeStakingLock.Lock()
 	defer gogoNodeStakingLock.Unlock()
-	return ggp.GetContract("gogoNodeStaking")
+	return ggp.GetContract("rocketNodeStaking")
 }

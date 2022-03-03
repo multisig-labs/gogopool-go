@@ -185,5 +185,5 @@ var gogoMinipoolQueueLock sync.Mutex
 func getGoGoMinipoolQueue(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoMinipoolQueueLock.Lock()
 	defer gogoMinipoolQueueLock.Unlock()
-	return ggp.GetContract("gogoMinipoolQueue")
+	return ggp.GetContract("rocketMinipoolQueue")
 }

@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const NetworkSettingsContractName = "gogoDAOProtocolSettingsNetwork"
+const NetworkSettingsContractName = "rocketDAOProtocolSettingsNetwork"
 
 // The threshold of trusted nodes that must reach consensus on oracle data to commit it
 func GetNodeConsensusThreshold(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {

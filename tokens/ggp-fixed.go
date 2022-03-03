@@ -105,5 +105,5 @@ var gogoTokenFixedSupplyGGPLock sync.Mutex
 func getGoGoTokenGGPFixedSupply(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoTokenFixedSupplyGGPLock.Lock()
 	defer gogoTokenFixedSupplyGGPLock.Unlock()
-	return ggp.GetContract("gogoTokenGGPFixedSupply")
+	return ggp.GetContract("rocketTokenGGPFixedSupply")
 }

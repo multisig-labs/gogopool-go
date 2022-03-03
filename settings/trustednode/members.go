@@ -15,7 +15,7 @@ import (
 
 // Config
 const (
-	MembersSettingsContractName       = "gogoDAONodeTrustedSettingsMembers"
+	MembersSettingsContractName       = "rocketDAONodeTrustedSettingsMembers"
 	QuorumSettingPath                 = "members.quorum"
 	GGPBondSettingPath                = "members.ggpbond"
 	MinipoolUnbondedMaxSettingPath    = "members.minipool.unbonded.max"

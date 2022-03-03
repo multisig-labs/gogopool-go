@@ -106,5 +106,5 @@ var gogoDAONodeTrustedActionsLock sync.Mutex
 func getGoGoDAONodeTrustedActions(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoDAONodeTrustedActionsLock.Lock()
 	defer gogoDAONodeTrustedActionsLock.Unlock()
-	return ggp.GetContract("gogoDAONodeTrustedActions")
+	return ggp.GetContract("rocketDAONodeTrustedActions")
 }

@@ -15,7 +15,7 @@ import (
 func StakeGGP(ggp *gogopool.GoGoPool, ownerAccount, nodeAccount *accounts.Account, amount *big.Int) error {
 
 	// Get GoGoNodeStaking contract address
-	gogoNodeStakingAddress, err := ggp.GetAddress("gogoNodeStaking")
+	gogoNodeStakingAddress, err := ggp.GetAddress("rocketNodeStaking")
 	if err != nil {
 		return err
 	}

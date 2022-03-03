@@ -602,5 +602,5 @@ var gogoAuctionManagerLock sync.Mutex
 func getGoGoAuctionManager(ggp *gogopool.GoGoPool) (*gogopool.Contract, error) {
 	gogoAuctionManagerLock.Lock()
 	defer gogoAuctionManagerLock.Unlock()
-	return ggp.GetContract("gogoAuctionManager")
+	return ggp.GetContract("rocketAuctionManager")
 }

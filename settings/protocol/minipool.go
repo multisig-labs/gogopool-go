@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const MinipoolSettingsContractName = "gogoDAOProtocolSettingsMinipool"
+const MinipoolSettingsContractName = "rocketDAOProtocolSettingsMinipool"
 
 // Get the minipool launch balance
 func GetMinipoolLaunchBalance(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (*big.Int, error) {

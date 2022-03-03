@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const RewardsSettingsContractName = "gogoDAOProtocolSettingsRewards"
+const RewardsSettingsContractName = "rocketDAOProtocolSettingsRewards"
 
 // The claim amount for a claimer as a fraction
 func GetRewardsClaimerPerc(ggp *gogopool.GoGoPool, contractName string, opts *bind.CallOpts) (float64, error) {

@@ -13,7 +13,7 @@ import (
 )
 
 // Config
-const DepositSettingsContractName = "gogoDAOProtocolSettingsDeposit"
+const DepositSettingsContractName = "rocketDAOProtocolSettingsDeposit"
 
 // Deposits currently enabled
 func GetDepositEnabled(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (bool, error) {

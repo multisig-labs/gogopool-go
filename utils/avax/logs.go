@@ -19,7 +19,7 @@ type FilterQuery struct {
 }
 
 func FilterContractLogs(ggp *gogopool.GoGoPool, contractName string, q FilterQuery, intervalSize *big.Int) ([]types.Log, error) {
-	gogoDaoNodeTrustedUpgrade, err := ggp.GetContract("gogoDAONodeTrustedUpgrade")
+	gogoDaoNodeTrustedUpgrade, err := ggp.GetContract("rocketDAONodeTrustedUpgrade")
 	if err != nil {
 		return nil, err
 	}

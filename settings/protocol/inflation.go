@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const InflationSettingsContractName = "gogoDAOProtocolSettingsInflation"
+const InflationSettingsContractName = "rocketDAOProtocolSettingsInflation"
 
 // GGP inflation rate per interval
 func GetInflationIntervalRate(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (float64, error) {

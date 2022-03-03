@@ -14,7 +14,7 @@ import (
 )
 
 // Config
-const AuctionSettingsContractName = "gogoDAOProtocolSettingsAuction"
+const AuctionSettingsContractName = "rocketDAOProtocolSettingsAuction"
 
 // Lot creation currently enabled
 func GetCreateLotEnabled(ggp *gogopool.GoGoPool, opts *bind.CallOpts) (bool, error) {

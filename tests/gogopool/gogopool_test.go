@@ -11,7 +11,7 @@ import (
 func TestGetAddress(t *testing.T) {
 
 	// Get contract address
-	address1, err := ggp.GetAddress("gogoDepositPool")
+	address1, err := ggp.GetAddress("rocketDepositPool")
 	if err != nil {
 		t.Fatalf("Could not get contract address: %s", err)
 	} else if bytes.Equal(address1.Bytes(), common.Address{}.Bytes()) {
@@ -19,7 +19,7 @@ func TestGetAddress(t *testing.T) {
 	}
 
 	// Get cached contract address
-	address2, err := ggp.GetAddress("gogoDepositPool")
+	address2, err := ggp.GetAddress("rocketDepositPool")
 	if err != nil {
 		t.Fatalf("Could not get cached contract address: %s", err)
 	} else if !bytes.Equal(address2.Bytes(), address1.Bytes()) {
@@ -31,7 +31,7 @@ func TestGetAddress(t *testing.T) {
 func TestGetAddresses(t *testing.T) {
 
 	// Get contract addresses
-	addresses1, err := ggp.GetAddresses("gogoNodeManager", "gogoNodeDeposit")
+	addresses1, err := ggp.GetAddresses("rocketNodeManager", "rocketNodeDeposit")
 	if err != nil {
 		t.Fatalf("Could not get contract addresses: %s", err)
 	} else {
@@ -43,7 +43,7 @@ func TestGetAddresses(t *testing.T) {
 	}
 
 	// Get cached contract addresses
-	addresses2, err := ggp.GetAddresses("gogoNodeManager", "gogoNodeDeposit")
+	addresses2, err := ggp.GetAddresses("rocketNodeManager", "rocketNodeDeposit")
 	if err != nil {
 		t.Fatalf("Could not get cached contract addresses: %s", err)
 	} else {
@@ -59,13 +59,13 @@ func TestGetAddresses(t *testing.T) {
 func TestGetABI(t *testing.T) {
 
 	// Get ABI
-	abi1, err := ggp.GetABI("gogoDepositPool")
+	abi1, err := ggp.GetABI("rocketDepositPool")
 	if err != nil {
 		t.Fatalf("Could not get contract ABI: %s", err)
 	}
 
 	// Get cached ABI
-	abi2, err := ggp.GetABI("gogoDepositPool")
+	abi2, err := ggp.GetABI("rocketDepositPool")
 	if err != nil {
 		t.Fatalf("Could not get cached contract ABI: %s", err)
 	} else {
@@ -87,13 +87,13 @@ func TestGetABI(t *testing.T) {
 func TestGetABIs(t *testing.T) {
 
 	// Get ABIs
-	abis1, err := ggp.GetABIs("gogoNodeManager", "gogoNodeDeposit")
+	abis1, err := ggp.GetABIs("rocketNodeManager", "rocketNodeDeposit")
 	if err != nil {
 		t.Fatalf("Could not get contract ABIs: %s", err)
 	}
 
 	// Get cached ABIs
-	abis2, err := ggp.GetABIs("gogoNodeManager", "gogoNodeDeposit")
+	abis2, err := ggp.GetABIs("rocketNodeManager", "rocketNodeDeposit")
 	if err != nil {
 		t.Fatalf("Could not get cached contract ABIs: %s", err)
 	} else {
@@ -117,12 +117,12 @@ func TestGetABIs(t *testing.T) {
 func TestGetContract(t *testing.T) {
 
 	// Get contract
-	if _, err := ggp.GetContract("gogoDepositPool"); err != nil {
+	if _, err := ggp.GetContract("rocketDepositPool"); err != nil {
 		t.Fatalf("Could not get contract: %s", err)
 	}
 
 	// Get cached contract
-	if _, err := ggp.GetContract("gogoDepositPool"); err != nil {
+	if _, err := ggp.GetContract("rocketDepositPool"); err != nil {
 		t.Fatalf("Could not get cached contract: %s", err)
 	}
 
@@ -131,12 +131,12 @@ func TestGetContract(t *testing.T) {
 func TestGetContracts(t *testing.T) {
 
 	// Get contracts
-	if _, err := ggp.GetContracts("gogoNodeManager", "gogoNodeDeposit"); err != nil {
+	if _, err := ggp.GetContracts("rocketNodeManager", "rocketNodeDeposit"); err != nil {
 		t.Fatalf("Could not get contracts: %s", err)
 	}
 
 	// Get cached contracts
-	if _, err := ggp.GetContracts("gogoNodeManager", "gogoNodeDeposit"); err != nil {
+	if _, err := ggp.GetContracts("rocketNodeManager", "rocketNodeDeposit"); err != nil {
 		t.Fatalf("Could not get cached contracts: %s", err)
 	}
 
@@ -145,12 +145,12 @@ func TestGetContracts(t *testing.T) {
 func TestMakeContract(t *testing.T) {
 
 	// Make contract
-	if _, err := ggp.MakeContract("gogoMinipool", common.HexToAddress("0x1111111111111111111111111111111111111111")); err != nil {
+	if _, err := ggp.MakeContract("rocketMinipool", common.HexToAddress("0x1111111111111111111111111111111111111111")); err != nil {
 		t.Fatalf("Could not make contract: %s", err)
 	}
 
 	// Make contract with cached ABI
-	if _, err := ggp.MakeContract("gogoMinipool", common.HexToAddress("0x2222222222222222222222222222222222222222")); err != nil {
+	if _, err := ggp.MakeContract("rocketMinipool", common.HexToAddress("0x2222222222222222222222222222222222222222")); err != nil {
 		t.Fatalf("Could not make contract with cached ABI: %s", err)
 	}
 
