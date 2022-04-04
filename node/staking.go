@@ -121,7 +121,8 @@ func EstimateStakeGas(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.Tra
 	if err != nil {
 		return gogopool.GasInfo{}, err
 	}
-	return gogoNodeStaking.GetTransactionGasInfo(opts, "stakeGGP", ggpAmount)
+
+	return gogoNodeStaking.GetTransactionGasInfo(opts, "stakeRPL", ggpAmount)
 }
 
 // Stake GGP
@@ -130,7 +131,7 @@ func StakeGGP(ggp *gogopool.GoGoPool, ggpAmount *big.Int, opts *bind.TransactOpt
 	if err != nil {
 		return common.Hash{}, err
 	}
-	hash, err := gogoNodeStaking.Transact(opts, "stakeGGP", ggpAmount)
+	hash, err := gogoNodeStaking.Transact(opts, "stakeRPL", ggpAmount)
 	if err != nil {
 		return common.Hash{}, fmt.Errorf("Could not stake GGP: %w", err)
 	}

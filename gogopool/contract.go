@@ -53,7 +53,8 @@ func (c *Contract) GetTransactionGasInfo(opts *bind.TransactOpts, method string,
 	if err != nil {
 		return response, fmt.Errorf("Error getting transaction gas info: Could not encode input data: %w", err)
 	}
-
+	fmt.Println(opts.From.String())
+	fmt.Println(c.Address.String())
 	// Estimate gas limit
 	estGasLimit, safeGasLimit, err := c.estimateGasLimit(opts, input)
 
